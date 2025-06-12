@@ -10,6 +10,7 @@ import Venue from './sections/Venue'
 import FAQ from './sections/FAQ'
 import Contact from './sections/Contact'
 // import Registration from './sections/Registration'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <section id="contact"><Contact /></section>
         {/* <section id="registration"><Registration /></section> */}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
