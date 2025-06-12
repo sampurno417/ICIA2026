@@ -2,7 +2,7 @@ const CallForPapers = () => {
   return (
     <section className="px-6 py-16 bg-gray-50 text-gray-800">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-red-700 mb-8">Call for Papers</h2>
+        <h2 className="text-3xl font-bold text-center text-black-700 mb-8 underline underline-offset-8 decoration-4 decoration-red-600">Call for Papers</h2>
 
         <p className="text-lg text-justify mb-8">
           We cordially invite you to submit your research papers and abstracts related to IoT and its applications.

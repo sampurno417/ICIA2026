@@ -5,10 +5,10 @@ import Home from './sections/Home'
 import About from './sections/About'
 import Committee from './sections/Committee'
 import CallForPapers from './sections/CallForPapers'
-// import Schedule from './sections/Schedule'
-// import Venue from './sections/Venue'
-// import FAQ from './sections/FAQ'
-// import Contact from './sections/Contact'
+import Schedule from './sections/Schedule'
+import Venue from './sections/Venue'
+import FAQ from './sections/FAQ'
+import Contact from './sections/Contact'
 // import Registration from './sections/Registration'
 
 function App() {
@@ -20,10 +20,10 @@ function App() {
         <section id="about"><About /></section>
         <section id="committee"><Committee /></section>
         <section id="call-for-papers"><CallForPapers /></section>
-        {/* <section id="schedule"><Schedule /></section> */}
-        {/* <section id="venue"><Venue /></section> */}
-        {/* <section id="faq"><FAQ /></section> */}
-        {/* <section id="contact"><Contact /></section> */}
+        <section id="schedule"><Schedule /></section>
+        <section id="venue"><Venue /></section>
+        <section id="faq"><FAQ /></section>
+        <section id="contact"><Contact /></section>
         {/* <section id="registration"><Registration /></section> */}
       </main>
       {/* <Footer /> */}
