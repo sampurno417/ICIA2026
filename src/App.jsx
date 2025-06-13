@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar'
-// import Footer from './components/Footer'
+import Footer from './components/Footer'
 
 import Home from './sections/Home'
 import About from './sections/About'
@@ -10,7 +10,6 @@ import Venue from './sections/Venue'
 import FAQ from './sections/FAQ'
 import Contact from './sections/Contact'
 // import Registration from './sections/Registration'
-import Footer from './components/Footer'
 
 function App() {
   return (
