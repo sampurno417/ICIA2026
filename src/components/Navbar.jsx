@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid"; // Heroicons
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 const sections = [
   { name: "Home", to: "/" },
@@ -15,12 +15,28 @@ const sections = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showTitle, setShowTitle] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show title when scrolled past 100px (adjust if needed)
+      setShowTitle(window.scrollY > 120);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 bg-black z-50 shadow">
+    <header className="sticky top-0 bg-black z-50 shadow transition duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Logo/Title */}
-        <Link to="/" className="text-2xl sm:text-3xl text-red-500 font-bold">
+        {/* Show title only when scrolled past header */}
+        <Link
+          to="/"
+          className={`text-2xl sm:text-3xl font-bold transition duration-300 ${
+            showTitle ? "text-red-500 opacity-100" : "opacity-0"
+          }`}
+        >
           ICIA 2026
         </Link>
 
@@ -38,7 +54,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle Button */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
