@@ -1,3 +1,16 @@
+import { Link } from "react-router-dom";
+
+const sections = [
+  { name: "Home", to: "/" },
+  { name: "Committee", to: "/committee" },
+  { name: "Call for Papers", to: "/call-for-papers" },
+  { name: "Schedule", to: "/schedule" },
+  { name: "Venue", to: "/venue" },
+  { name: "FAQ", to: "/faq" },
+  { name: "Contact", to: "/contact" },
+  { name: "Registration", to: "/registration" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-8 mt-20">
@@ -17,19 +30,23 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
           <ul className="space-y-1 text-sm">
-            <li><a href="#about" className="hover:underline">About</a></li>
-            <li><a href="#committee" className="hover:underline">Committee</a></li>
-            <li><a href="#call-for-papers" className="hover:underline">Call for Papers</a></li>
-            <li><a href="#schedule" className="hover:underline">Schedule</a></li>
-            <li><a href="#venue" className="hover:underline">Venue</a></li>
-            <li><a href="#contact" className="hover:underline">Contact</a></li>
+            {sections.map((section) => (
+                        <li key={section.to}>
+                          <Link
+                            to={section.to}
+                            className="text-white hover:text-red-500 transition duration-200"
+                          >
+                            {section.name}
+                          </Link>
+                        </li>
+                      ))}
           </ul>
         </div>
 
         {/* Column 3: Contact */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Contact</h3>
-          <p className="text-sm">
+          <p className="text-sm hover:text-red-500 transition duration-200">
             Email: <a href="mailto:icia.communication2@gmail.com" className="underline">icia.communication2@gmail.com</a><br />
             Phone: +91 7980 213 723
           </p>
