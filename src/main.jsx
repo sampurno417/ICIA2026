@@ -13,7 +13,7 @@ import Schedule from './sections/Schedule'
 import Venue from './sections/Venue'
 import FAQ from './sections/FAQ'
 import Contact from './sections/Contact'
-// import Registration from './sections/Registration'
+import Registration from './sections/Registration'
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       { path: 'venue', element: <Venue /> },
       { path: 'faq', element: <FAQ /> },
       { path: 'contact', element: <Contact /> },
-      // { path: 'registration', element: <Registration /> },
+      { path: 'registration', element: <Registration /> },
     ],
   },
 ])
