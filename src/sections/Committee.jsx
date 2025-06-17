@@ -93,16 +93,16 @@ const otherCommittees = [
       'Dr. Mayukh Sarkar, NIT Jamshedpur, India',
       'Dr. Ashish Kumar Sahu, NIT Jamshedpur, India',
       'Dr. B Ramachandra Reddy, NIT Jamshedpur, India',
-      'Dr. Jitesh Pradhan, NIT Jamshedpur, India'
-    ]
+      'Dr. Jitesh Pradhan, NIT Jamshedpur, India',
+    ],
   },
   {
     title: 'Website Chair',
     members: [
       'Dr. Subrata Dutta, NIT Jamshedpur, India',
       'Mr. Kailash Chandra Mishra, NIT Jamshedpur, India',
-      'Mr. Sandeep Mahato, NIT Jamshedpur, India'
-    ]
+      'Mr. Sandeep Mahato, NIT Jamshedpur, India',
+    ],
   },
   {
     title: 'Publicity Chair',
@@ -114,16 +114,16 @@ const otherCommittees = [
       'Mr. Aditya Narayan Hati, NIT Jamshedpur, India',
       'Mr. Ravishankar Mehta, NIT Jamshedpur, India',
       'Mr. Saptarshi Roychowdhury, NIT Jamshedpur, India',
-      'Ms. Anwesa Das, NIT Jamshedpur, India'
-    ]
+      'Ms. Anwesa Das, NIT Jamshedpur, India',
+    ],
   },
   {
     title: 'Local Organizing Committee – Presentation & Publication',
     members: [
       'Dr. Subrata Dutta, NIT Jamshedpur, India',
       'Dr. Chadrashekhar Azad, NIT Jamshedpur, India',
-      'Dr. Amit Majumder, NIT Jamshedpur, India'
-    ]
+      'Dr. Amit Majumder, NIT Jamshedpur, India',
+    ],
   },
   {
     title: 'Advisory Committee',
@@ -133,8 +133,8 @@ const otherCommittees = [
       'Dr. Md Ashique Hassan, NIT Jamshedpur, India',
       'Dr. Mrutyunjay Rout, NIT Jamshedpur, India',
       'Dr. Om Hari Gupta, NIT Jamshedpur, India',
-      'Colonel Dr. Nisheeth Kumar Rai, NIT Jamshedpur, India'
-    ]
+      'Colonel Dr. Nisheeth Kumar Rai, NIT Jamshedpur, India',
+    ],
   },
   {
     title: 'Technical Program Committee',
@@ -150,9 +150,9 @@ const otherCommittees = [
       'Dr. Juin Acharjee, St. Thomas\' College of Engineering & Technology, India',
       'Dr. Partha Barma, Solverminds Solutions And Technologies Pvt Ltd, India',
       'Dr. Sheuli Chakraborty, Asansol Engineering College, India',
-      'Mr. Debarshi Mazumder, Eastern International University Vietnam, Vietnam'
-    ]
-  }
+      'Mr. Debarshi Mazumder, Eastern International University Vietnam, Vietnam',
+    ],
+  },
 ];
 
 const placeholderImage =
@@ -161,16 +161,20 @@ const placeholderImage =
 export default function Committee() {
   return (
     <section id="committee" className="max-w-7xl mx-auto px-4 py-16">
-      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-14 tracking-tight underline decoration-4 decoration-red-700">Organizing Committee</h2>
+      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-14 tracking-tight underline decoration-4 decoration-red-700">
+        Organizing Committee
+      </h2>
       <div className="space-y-20">
         {membersWithImage.map((group, idx) => (
           <div key={idx}>
-            <h3 className="text-2xl font-bold text-red-700 mb-6 border-b pb-1 border-black-200 inline-block">{group.role}</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <h3 className="text-2xl font-bold text-red-700 mb-6 border-b pb-1 border-black-200 text-center w-full">
+              {group.role}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-8">
               {group.people.map((person, i) => (
                 <div
                   key={i}
-                  className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow"
+                  className="bg-white rounded-xl shadow-lg p-6 w-64 flex flex-col items-center text-center hover:shadow-2xl transition-shadow"
                 >
                   <img
                     src={placeholderImage}
@@ -188,8 +192,13 @@ export default function Committee() {
         {/* Other Committees */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {otherCommittees.map((section, idx) => (
-            <div key={idx} className="bg-blue-50 border-l-4 border-red-500 p-6 rounded-lg shadow hover:shadow-md transition-shadow">
-              <h4 className="text-xl font-semibold text-red-700 mb-3 border-b border-blue-300 pb-1">{section.title}</h4>
+            <div
+              key={idx}
+              className="bg-blue-50 border-l-4 border-red-500 p-6 rounded-lg shadow hover:shadow-md transition-shadow"
+            >
+              <h4 className="text-xl font-semibold text-red-700 mb-3 border-b border-blue-300 pb-1">
+                {section.title}
+              </h4>
               <ul className="list-disc list-inside space-y-1 text-sm text-gray-800">
                 {section.members.map((member, i) => (
                   <li key={i}>{member}</li>
