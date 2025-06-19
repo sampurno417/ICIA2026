@@ -1,4 +1,5 @@
 // src/sections/Registration.jsx
+import { Link } from 'react-router-dom'
 export default function Registration() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 space-y-8">
@@ -21,15 +22,20 @@ export default function Registration() {
         </ul>
       </div>
 
-      <div className="text-center">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
         <a
-          href="https://forms.gle/your-google-form-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow"
+          href="/ICIA2026_Registration.pdf"
+          download
+          className="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-6 rounded-lg shadow"
         >
-          Register Now
+          Download Registration Brochure
         </a>
+        <Link
+  to="/registration-form"
+  className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow"
+>
+  Register Now
+</Link>
       </div>
     </div>
   );

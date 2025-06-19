@@ -1,4 +1,3 @@
-// src/main.jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -14,6 +13,7 @@ import Venue from './sections/Venue'
 import FAQ from './sections/FAQ'
 import Contact from './sections/Contact'
 import Registration from './sections/Registration'
+import RegistrationForm from './sections/RegistrationForm.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
       { path: 'contact', element: <Contact /> },
       { path: 'registration', element: <Registration /> },
     ],
+  },
+  {
+    path: '/registration-form',
+    element: <RegistrationForm />,
   },
 ])
 
