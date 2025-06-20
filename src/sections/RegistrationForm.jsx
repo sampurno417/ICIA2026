@@ -13,6 +13,7 @@ export default function RegistrationForm() {
     type: "",
   });
 
+  const [proofImage, setProofImage] = useState(null);
   const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
@@ -23,15 +24,44 @@ export default function RegistrationForm() {
     }));
   };
 
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "payment_proof");
+    formData.append("cloud_name", "ddtatnwwv");
+
+    const response = await fetch("https://api.cloudinary.com/v1_1/ddtatnwwv/image/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to upload image");
+    }
+
+    return await response.json();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Submitting...");
 
     try {
+      let imageUrl = "";
+      if (proofImage) {
+        const uploadRes = await uploadToCloudinary(proofImage);
+        imageUrl = uploadRes.secure_url;
+      }
+
+      const payload = {
+        ...formData,
+        proofImage: imageUrl,
+      };
+
       const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/registration`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
@@ -47,6 +77,7 @@ export default function RegistrationForm() {
           amountPaid: "",
           type: "",
         });
+        setProofImage(null);
       } else {
         setStatus("Submission failed. Please try again.");
       }
@@ -99,6 +130,17 @@ export default function RegistrationForm() {
             <option value="Industry">Industry Person</option>
             <option value="Academician">Academician / Faculty</option>
           </select>
+        </div>
+
+        <div>
+          <label className="block font-medium mb-1">Upload Payment Proof</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setProofImage(e.target.files[0])}
+            required
+            className="w-full border px-4 py-2 rounded shadow-sm"
+          />
         </div>
 
         <button
